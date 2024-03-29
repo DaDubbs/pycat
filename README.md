@@ -80,4 +80,4 @@ python main.py
 
 If displayresults is set to True, the output will be similar to the following.
 
-![Ecample of PyCat output.](https://github.com/DaDubbs/pycat/tree/main/output/output.png)
+![Example of PyCat output.](/output/output.png)
