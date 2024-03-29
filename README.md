@@ -81,11 +81,3 @@ python main.py
 If displayresults is set to True, the output will be similar to the following.
 
 ![PyCat Exmaple output](https://github.com/DaDubbs/pycat/tree/main/output/output.png)
-
-![alt text](image.png)
-SSID                | Password
-------------------------------
-MGMT_WIFI           |  L3tM31n
-IPStandingUp        |  IWithCUP
-BillWitheScience Fi |  Sc13nc3Guy
-NetGear64G          |  Password123
