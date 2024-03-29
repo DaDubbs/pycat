@@ -20,7 +20,7 @@ If you have a pcap file, it will need to be converted to a supported file for Ha
 ## Installing Python
 Python.org has a Wiki page that is best on how to install Python itself. 
 
-> (https://wiki.python.org/moin/BeginnersGuide/Download)
+[Python Install Docs](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 ## Installing Hashcat
 
