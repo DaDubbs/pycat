@@ -41,9 +41,10 @@ Install Homebrew:
 
 Then install Hashcat 
 
-'''
+```
 brew install hashcat
-'''
+```
+
 
 # Configuring pycat
 Now that the prequisites are out of the way.  You will need to modify the config.py file. This file contains information about your setup such as where the 22200 files are locate, where hashcat is stored, and a few other options. 
@@ -79,9 +80,12 @@ python main.py
 
 If displayresults is set to True, the output will be similar to the following.
 
->SSID                | Password
->------------------------------
->MGMT_WIFI           |  L3tM31n
->IPStandingUp        |  IWithCUP
->BillWitheScience Fi |  Sc13nc3Guy
->NetGear64G          |  Password123
+![PyCat Exmaple output](https://github.com/DaDubbs/pycat/tree/main/output/output.png)
+
+![alt text](image.png)
+SSID                | Password
+------------------------------
+MGMT_WIFI           |  L3tM31n
+IPStandingUp        |  IWithCUP
+BillWitheScience Fi |  Sc13nc3Guy
+NetGear64G          |  Password123
