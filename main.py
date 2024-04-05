@@ -46,6 +46,7 @@ else:
 wificapdir = config.wificap #"\\monkeynet_16-ef-35-d3-18-94_eviltwin.22000"
 pwddir = config.passwordir
 hashcat = f"{config.hashcatdir}\\{hcat}"
+rulesdir = config.rulesdir
 displayresults = config.displayresults
 mode = config.mode
 
@@ -55,6 +56,12 @@ if not os.path.isdir(pwddir):
     print (f"Error: Directory for password list ({pwddir}) does not exist")
 else:
     pwdlists = os.listdir(pwddir)
+
+if not os.path.isdir(rulesdir):
+    print (f"Error: Directory for password list ({rulesdir}) does not exist")
+else:
+    ruleslist = os.listdir(rulesdir)
+print(ruleslist)
 
 # Checking if the hash tune file is located in a diffeent directory than hashcat.  The switching to the directory that hashtune lives in
 if config.hashtunedir == "":
@@ -75,8 +82,14 @@ else:
         if capext[1] == f".{mode}":    
             for list in pwdlists:
                 wordlist = f"{pwddir}\\{list}"  
-                print(f"Using \033[0;32;49m{list}\033[0m against \033[0;31;49m{wificapdir}\033[0m")
-                subprocess.run(f"{hashcat} -a 0 -w 3 {wificapdir} -m {mode} -o 2 {wordlist} --stdout")
+                if ruleslist:
+                    for rule in ruleslist:
+                        rulelist = f"{rulesdir}\\{rule}"
+                        print(f"Using \033[0;32;49m{list}\033[0m against \033[0;31;49m{wificapdir}\033[0m with rules {rule}")
+                        subprocess.run(f"{hashcat} -a 0 -w 3 {wificapdir} -m {mode} -o 2 {wordlist} -r {rulelist} --stdout")    
+                else:
+                    print(f"Using \033[0;32;49m{list}\033[0m against \033[0;31;49m{wificapdir}\033[0m")
+                    subprocess.run(f"{hashcat} -a 0 -w 3 {wificapdir} -m {mode} -o 2 {wordlist} --stdout")
 
         # Display cracked info
         if displayresults == True:
@@ -93,8 +106,14 @@ else:
                     capfile = f"{wificapdir}\\{wificap}"
                     for list in pwdlists:
                         wordlist = f"{pwddir}\\{list}"
-                        print(f"Using \033[0;32;49m{list}\033[0m against \033[0;31;49m{wificap}\033[0m")
-                        subprocess.run(f"{hashcat} -a 0 -w 3 {capfile} -m {mode} -o 2 {wordlist} --stdout")
+                        if ruleslist:
+                            for rule in ruleslist:
+                                rulelist = f"{rulesdir}\\{rule}"
+                                print(f"Using \033[0;32;49m{list}\033[0m against \033[0;31;49m{wificapdir}\033[0m with the rules \033[0;34;49m{rule}\033[0m")
+                                subprocess.run(f"{hashcat} -a 0 -w 3 {wificapdir} -m {mode} -o 2 {wordlist} -r {rulelist} --stdout")    
+                        else:
+                            print(f"Using \033[0;32;49m{list}\033[0m against \033[0;31;49m{wificapdir}\033[0m")
+                            subprocess.run(f"{hashcat} -a 0 -w 3 {wificapdir} -m {mode} -o 2 {wordlist} --stdout")
 
             # Display cracked info
             if displayresults == True:
