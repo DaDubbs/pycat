@@ -64,6 +64,9 @@ This is for Windows users only. It will tell the script where the hashcat.exe is
 ### hashtunedir
 If your hashcat tune file is not located in the same directory as hashcat, then hashcat will display an error. This should be changed only if that error is encountered.
 
+### ruledir
+This is the location where custom rules are applied, for example adding additional characters at the end of each wordlist entry. Using this will increase the amount of time it takes hashcat to crack a hash since it has more entries to test.
+
 ### displayresults
 If you want to display all the cracked passwords, set this value to true. It will run hashcat --show <capture> -m <mode>
 
